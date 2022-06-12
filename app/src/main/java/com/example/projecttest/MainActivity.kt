@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
+import com.example.projecttest.productList.ui.ProductListFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
                 bottomNavigationView.visibility = View.INVISIBLE
                 val fragmentTransition = supportFragmentManager.beginTransaction()
-                fragmentTransition.replace(R.id.mainActivity,ProductListFragment()).commit()
+                fragmentTransition.replace(R.id.mainActivity, ProductListFragment()).commit()
 
             }
         }
