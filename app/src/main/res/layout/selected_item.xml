@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -56,19 +55,34 @@
             app:layout_constraintStart_toEndOf="@+id/productItemIv"
             app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv" />
 
-        <CheckBox
-            android:id="@+id/selectedCb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="16dp"
-            android:text="Selected"
-            android:textAllCaps="true"
-            android:textSize="16sp"
-            android:textStyle="bold|italic"
+        <RadioGroup
+            android:id="@+id/RadioGroup"
+            android:layout_width="223dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/productItemAmtTv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv" />
+            app:layout_constraintStart_toEndOf="@+id/productItemIv"
+            app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv">
+
+            <RadioButton
+                android:id="@+id/dispatchRb"
+                android:layout_width="107dp"
+                android:layout_height="match_parent"
+                android:text="Dispatch" />
+
+            <RadioButton
+                android:id="@+id/pickedRb"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Picked" />
+        </RadioGroup>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

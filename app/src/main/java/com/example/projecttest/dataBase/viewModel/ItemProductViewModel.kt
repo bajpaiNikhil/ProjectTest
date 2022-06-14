@@ -13,12 +13,18 @@ import retrofit2.Response
 class ItemProductViewModel(private val repository: ItemProductRepository) : ViewModel() {
 
 
-
     fun upsert(item: ItemProduct){
         viewModelScope.launch {
             repository.upsert(item)
         }
     }
+
     fun getAllItemProductList() = repository.getAllItemProduct()
+
+    fun delete(item: ItemProduct){
+        viewModelScope.launch {
+            repository.delete(item)
+        }
+    }
 
 }

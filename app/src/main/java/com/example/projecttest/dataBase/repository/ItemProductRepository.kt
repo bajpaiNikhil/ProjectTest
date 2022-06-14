@@ -13,4 +13,6 @@ class ItemProductRepository(
 
     fun getAllItemProduct() = db.getItemProductDatabaseDao().getAllItemProductList()
 
+    suspend fun delete(item: ItemProduct) = db.getItemProductDatabaseDao().delete(item)
+
 }

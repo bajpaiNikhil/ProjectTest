@@ -18,13 +18,13 @@ data class ItemProduct(
     val productImage : String ,
 
     @ColumnInfo(name = "SelectedList")
-    val selectedList : Boolean ,
+    var selectedList : Boolean ,
 
     @ColumnInfo(name = "DispatchList")
-    val dispatchList : Boolean ,
+    var dispatchList : Boolean ,
 
     @ColumnInfo(name = "PickedList")
-    val pickedList : Boolean
+    var pickedList : Boolean
 ){
     @PrimaryKey(autoGenerate = true)
     var productPK : Int? =  null
