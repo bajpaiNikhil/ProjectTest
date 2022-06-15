@@ -56,9 +56,6 @@ class ProductListAdapter(private val productList : List<ProductItem> ,
 
                 Log.d("ProductAdapter" , "Value if Check")
             }else{
-                selectedCb = false
-                dispatch = false
-                picked = false
                 roomViewModel.delete(item) // this is not working no idea why .
                 Log.d("ProductAdapter" , "Value if UnCheck ")
             }

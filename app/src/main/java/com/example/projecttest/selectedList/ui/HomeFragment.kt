@@ -64,8 +64,11 @@ class homeFragment : Fragment() {
                     selectedList.add(item)
                 }
             }
+
             binding.selectedRecyclerView.layoutManager = LinearLayoutManager(context)
-            binding.selectedRecyclerView.adapter = SelectedListAdapter(selectedList.distinct())
+            binding.selectedRecyclerView.adapter?.notifyDataSetChanged()
+            binding.selectedRecyclerView.adapter = SelectedListAdapter(selectedList.distinct() , roomViewModel)
+            selectedList.clear()
             Log.d("HomeFragment" , "this is the selected list ${selectedList.distinct()}")
 
         })
