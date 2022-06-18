@@ -12,17 +12,17 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.example.projecttest.editFragment"
+        android:name="com.example.projecttest.dispatchList.ui.editFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.projecttest.settingFragment"
+        android:name="com.example.projecttest.pickedList.ui.settingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/productListFragment"
-        android:name="com.example.projecttest.ProductListFragment"
+        android:name="com.example.projecttest.productList.ui.ProductListFragment"
         android:label="fragment_product_list"
         tools:layout="@layout/fragment_product_list" >
         <action

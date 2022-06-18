@@ -1,4 +1,4 @@
-package com.example.projecttest.selectedList.adapter
+package com.example.projecttest.dispatchList.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,19 +9,18 @@ import com.bumptech.glide.Glide
 import com.example.projecttest.R
 import com.example.projecttest.dataBase.entities.ItemProduct
 import com.example.projecttest.dataBase.viewModel.ItemProductViewModel
-import com.example.projecttest.databinding.SelectedItemBinding
+import com.example.projecttest.databinding.DispatchItemBinding
 
-
-class SelectedListAdapter(
-    private val productList: List<ItemProduct> ,
+class DispatchListAdapter(
+    private val productList: List<ItemProduct>,
     private val roomViewModel : ItemProductViewModel
-) : RecyclerView.Adapter<SelectedListAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<DispatchListAdapter.ItemViewHolder>() {
 
 
-    inner class ItemViewHolder(var binding : SelectedItemBinding): RecyclerView.ViewHolder(binding.root)
+    inner class ItemViewHolder(var binding : DispatchItemBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding =  SelectedItemBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
+        val binding =  DispatchItemBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return ItemViewHolder(binding)
     }
 
@@ -35,14 +34,15 @@ class SelectedListAdapter(
             }
         }
 
+        //holder.binding.RadioGroup.setOnCheckedChangeListener { radioGroup, i ->  }
+
 
         holder.binding.RadioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.dispatchRb -> {
-                    productList[position].selectedList = false
-                    productList[position].dispatchList = true
+                R.id.selectedRb -> {
+                    productList[position].selectedList = true
+                    productList[position].dispatchList = false
                     productList[position].pickedList = false
-
                     roomViewModel.upsert(productList[position])
                 }
                 R.id.pickedRb ->{
