@@ -1,6 +1,8 @@
 package com.example.projecttest.selectedList.adapter
 
+import android.app.Activity
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioGroup
@@ -10,6 +12,10 @@ import com.example.projecttest.R
 import com.example.projecttest.dataBase.entities.ItemProduct
 import com.example.projecttest.dataBase.viewModel.ItemProductViewModel
 import com.example.projecttest.databinding.SelectedItemBinding
+import com.thecode.aestheticdialogs.AestheticDialog
+import com.thecode.aestheticdialogs.DialogAnimation
+import com.thecode.aestheticdialogs.DialogStyle
+import com.thecode.aestheticdialogs.DialogType
 
 
 class SelectedListAdapter(
@@ -43,14 +49,29 @@ class SelectedListAdapter(
                     productList[position].dispatchList = true
                     productList[position].pickedList = false
 
+                    //roomViewModel.upsert(productList[position])
+                    AestheticDialog.Builder(holder.itemView.context as Activity , DialogStyle.TOASTER , DialogType.SUCCESS)
+                        .setTitle("Dispatch State")
+                        .setMessage("Selected item is moved to dispatch state")
+                        .setCancelable(true)
+                        .setDarkMode(true)
+                        .setAnimation(DialogAnimation.SLIDE_RIGHT)
+                        .show()
                     roomViewModel.upsert(productList[position])
                 }
                 R.id.pickedRb ->{
                     productList[position].selectedList = false
                     productList[position].dispatchList = false
                     productList[position].pickedList = true
-
                     Log.d("selectedAdapter" , "picked Clicked")
+                    //roomViewModel.upsert(productList[position])
+                    AestheticDialog.Builder(holder.itemView.context as Activity , DialogStyle.TOASTER , DialogType.SUCCESS)
+                        .setTitle("Picked State")
+                        .setMessage("Selected item is moved to picked state")
+                        .setCancelable(true)
+                        .setDarkMode(true)
+                        .setAnimation(DialogAnimation.SLIDE_RIGHT)
+                        .show()
                     roomViewModel.upsert(productList[position])
                 }
             }

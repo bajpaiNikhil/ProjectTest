@@ -42,7 +42,6 @@ class ProductListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-
         _binding = FragmentProductListBinding.inflate(inflater,container , false)
         return binding.root
 
@@ -73,6 +72,7 @@ class ProductListFragment : Fragment() {
         productViewModel.getProductViewModel()
         productViewModel.productList.observe(viewLifecycleOwner , Observer {
             if (it.isSuccessful){
+                binding.productListAnimation.visibility = View.INVISIBLE
                 Log.d("CartFragment" , "this is the productList ${it.body()}")
                 binding.recyclerView.layoutManager = LinearLayoutManager(context)
                 binding.recyclerView.adapter = ProductListAdapter(it.body()!! ,  roomViewModel)

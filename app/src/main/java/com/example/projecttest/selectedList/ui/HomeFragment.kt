@@ -61,6 +61,7 @@ class homeFragment : Fragment() {
         roomViewModel.getAllItemProductList().observe(viewLifecycleOwner , Observer {
             for (item in it){
                 if (item.selectedList){
+                    binding.selectedListAnimation.visibility = View.INVISIBLE
                     selectedList.add(item)
                 }
             }

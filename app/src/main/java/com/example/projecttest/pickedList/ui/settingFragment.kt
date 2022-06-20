@@ -53,17 +53,22 @@ class settingFragment : Fragment() {
         )[ItemProductViewModel::class.java]
 
         roomViewModel.getAllItemProductList().observe(viewLifecycleOwner , Observer {
+
             for (item in it){
                 if(item.pickedList){
+                    binding.pickedListAnimation.visibility = View.INVISIBLE
+                    Log.d("PickedFragment" , "picked item ${pickedList.distinct()}")
                     pickedList.add(item)
-                    Log.d("PickedFragment" , "picked list $pickedList")
+
                 }
             }
+            Log.d("PickedFragment" , "picked list ${pickedList.distinct()}")
+            binding.pickedRecyclerView.layoutManager = LinearLayoutManager(context)
+            binding.pickedRecyclerView.adapter = PickedListAdapter(pickedList.distinct() ,roomViewModel)
+            pickedList.clear()
+
         })
-        Log.d("PickedFragment" , "picked list ${pickedList.distinct()}")
-        binding.pickedRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.pickedRecyclerView.adapter = PickedListAdapter(pickedList.distinct() ,roomViewModel)
-        pickedList.clear()
+
 
     }
 }

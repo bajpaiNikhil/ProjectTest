@@ -1,18 +1,26 @@
 package com.example.projecttest
 
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.projecttest.productList.ui.ProductListFragment
+import com.example.projecttest.service.CheckInternet
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var receiver : CheckInternet
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 //
 //        Log.d("mainActivity" , "item is clicked $appBarConfiguration")
 
-
+        isNetworkAvailable()
 
 
         bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -59,6 +67,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun isNetworkAvailable() {
+//        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+//        Log.d("MainActivity" , "$activeNetworkInfo  , ${activeNetworkInfo?.isConnected}")
+//        return activeNetworkInfo != null && activeNetworkInfo.isConnected
+
+        receiver = CheckInternet()
+        applicationContext.registerReceiver(receiver , IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        Log.d("MainActivity" , "this is main ${receiver.resultCode}")
+    }
+
+//    override fun onStop() {
+//        super.onStop()
+//        unregisterReceiver(receiver)
+//    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

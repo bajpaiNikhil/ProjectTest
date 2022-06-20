@@ -53,6 +53,7 @@ class editFragment : Fragment() {
         roomViewModel.getAllItemProductList().observe(viewLifecycleOwner , Observer {
             for (item in it){
                 if (item.dispatchList){
+                    binding.dispatchListAnimation.visibility = View.INVISIBLE
                     dispatchList.add(item)
                 }
             }

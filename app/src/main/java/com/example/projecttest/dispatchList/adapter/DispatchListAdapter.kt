@@ -25,7 +25,7 @@ class DispatchListAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        //val currentItem = productList[position]
+
         with(holder){
             with(productList[position]){
                 binding.productItemTitleTv.text  = this.name
@@ -33,8 +33,6 @@ class DispatchListAdapter(
                 Glide.with(itemView).load(this.productImage).into(binding.productItemIv)
             }
         }
-
-        //holder.binding.RadioGroup.setOnCheckedChangeListener { radioGroup, i ->  }
 
 
         holder.binding.RadioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->

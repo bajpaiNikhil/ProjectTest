@@ -4,35 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:backgroundTint="#FFFFFF">
+    android:backgroundTint="#FFFFFF"
+    app:cardCornerRadius="10dp"
+    app:circularflow_defaultRadius="10dp"
+    app:circularflow_radiusInDP="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <ImageView
             android:id="@+id/productItemIv"
-            android:layout_width="122dp"
-            android:layout_height="108dp"
+            android:layout_width="129dp"
+            android:layout_height="171dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:contentDescription="Image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="?android:attr/scrollbarTrackVertical"
-            android:contentDescription="Image" />
+            app:srcCompat="?android:attr/scrollbarTrackVertical" />
 
         <TextView
             android:id="@+id/productItemTitleTv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="monospace"
             android:text="TextView"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@+id/productItemAmtTv"
+            app:layout_constraintBottom_toTopOf="@+id/RadioGroup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/productItemIv"
@@ -42,46 +47,76 @@
             android:id="@+id/productItemAmtTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="TextView"
+            android:text="Text"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.59"
-            app:layout_constraintStart_toEndOf="@+id/productItemIv"
-            app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv" />
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <RadioGroup
             android:id="@+id/RadioGroup"
-            android:layout_width="223dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/productItemAmtTv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toEndOf="@+id/productItemIv"
-            app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv">
+            app:layout_constraintTop_toBottomOf="@+id/productItemTitleTv"
+            app:layout_constraintVertical_bias="0.0">
 
             <RadioButton
                 android:id="@+id/dispatchRb"
-                android:layout_width="107dp"
-                android:layout_height="match_parent"
-                android:text="Dispatch" />
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:padding="16dp"
+                android:text="Dispatch"
+                android:textColor="@drawable/text_color"
+                android:textSize="12dp" />
 
             <RadioButton
                 android:id="@+id/pickedRb"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_width="94dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
                 android:layout_weight="1"
-                android:text="Picked" />
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:padding="16dp"
+                android:text="Picked"
+                android:textColor="@drawable/text_color"
+                android:textSize="12sp" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="monospace"
+            android:text="Price: $"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/productItemAmtTv"
+            app:layout_constraintStart_toEndOf="@+id/productItemIv" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

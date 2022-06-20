@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pickedList.settingFragment">
+    tools:context=".pickedList.ui.settingFragment">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/pickedListAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1C1919"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/list_animation" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pickedRecyclerView"
         android:layout_width="0dp"
